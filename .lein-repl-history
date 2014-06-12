@@ -1,0 +1,17 @@
+(load "tutorial/scrape1")
+(in-ns 'tutorial.scrape1)
+*base-url*
+(hn-headlines)
+(fetch-url *base-url*)
+(fetch-url "http://www.sohu.com/")
+(load scrape2)
+(load "scrape2")
+(alter-var-root *base-url* "http://www.sohu.com")
+(alter-var-root *base-url* (fn [x] "http://www.sohu.com/"))
+(alter-var-root (var *base-url*) (fn [x] "http://www.sohu.com/"))
+(hn-headlines-and-points)
+(in-ns 'tutorial.scrape2)
+(hn-headlines-and-points)
+(alter-var-root (var *base-url*) (fn [x] "http://www.sohu.com"))
+(hn-headlines-and-points)
+exit
